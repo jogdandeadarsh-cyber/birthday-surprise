@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration - For My Sister</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section id="login-page" class="active">
+        <div class="login-box">
+            <h2 class="highlight">Enter Secret Code 🤫</h2>
+            <p>Unlock the magic door!</p>
+            <input type="password" id="passwordInput" placeholder=" Enter the Password ">
+            <button id="loginBtn" class="main-btn">ENTER ✨</button>
+            <p id="errorMsg" style="color: #ff2d55; margin-top: 10px; display: none;">चुकीचा पासवर्ड! पुन्हा प्रयत्न करा. ❌</p>
+        </div>
+    </section>
+
+    <div class="lights-container" id="lights">
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb"></div>
+    </div>
+
+<section id="page1" class="hidden">
+    <div class="split-container">
+        <div class="split-left">
+            <img src="assets/image/miss6.jpeg" alt="Tai Photo">
+        </div>
+
+        <div class="split-right">
+            <div class="wish-content">
+                <h1 class="fade-in">Happy Birthday, <span class="highlight">My Sweet Sister</span></h1>
+                
+                <div class="description fade-in-delay">
+                    <p>Thodi ragvat, pan titkichi sweet ahes 😊</p>
+                    
+                    <p>Saglya students la fakta student mhanun nahi, tar friend sarkha treat karnari ahes.</p>
+                    
+                    <p>All-in-one teacher ahes tu — Electronics sarkha tough subject suddha tu itka easy banavtes ki sagla kahi simple vatayla lagta. ⚡</p>
+                    
+                    <p>Jashi current nasli ki circuit chalat nahi, tashi tujhya shivay amcha learning complete hot nahi. ⚡</p>
+                    
+                    <p>Tu fakta electronics shikvat nahi, tar amhala concept samjun gheun life madhe apply karayla pan shikavtes. 💡</p>
+                    
+                    <p>Tujhya teaching mule amchya life madhla “confusion” cha short circuit nighun jato ani sagla clear hota. ⚡💡</p>
+                    
+                    <p>Electronics madam mhanun nahi tar ek great guide mhanun tu amchya sobat ahes. 🙏</p>
+                    
+                    <p>Syllabus khup simple padhatine samjun sangnari, ani nehmich majhya pathishi ubhi rahnari, support karnari...</p>
+                    
+                    <p>Jari tu majhi sakhi bahin naslis, tari ek mothya bahini sarkhi mala jivapeksha jast japnari ahes. 💖</p>
+                    
+                    <p>Tula vadhdivsachya khup khup shubhechha 🎂 Bappa tuzya life la ajun success deu det, ani tuzya saglya ichha purya hou det 🙏</p>
+                    
+                    <p class="final-wish"><strong>Once again, Happy Birthday my sweet sister 🥰🤗💖</strong></p>
+                    
+                    <p>Love you didu 🤭</p>
+                </div>
+
+                <div class="button-container">
+                    <button id="btn1" class="main-btn">OPEN YOUR GIFT 🎁</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="page2" class="hidden">
+        <div class="content-box surprise-card">
+            <h2 class="highlight fade-in">A Small Surprise for You! 🎁</h2>
+            
+            <div class="description fade-in-delay">
+                <p>Today, we have planned something really special for your birthday, dear sister. 🎉💖</p>
+                <p>It’s a small surprise filled with lots of love, care, and happiness, just for you. You mean so much to us, and today is all about celebrating you and the joy you bring into our lives. ✨</p>
+                <p>So please give us a little of your precious time and be a part of this beautiful moment. We hope it makes your day even more special, memorable, and full of smiles. 😊</p>
+            </div>
+
+            <button id="btn2" class="main-btn">SEE THE MAGIC ✨</button>
+        </div>
+    </section>
+
+    <section id="page3" class="hidden">
+        <div id="balloon-container"></div>
+        <div class="content-box">
+            <h2 class="final-title fade-in">Memories Forever 💖</h2>
+            <div class="photo-grid">
+                <div class="photo-card"><img src="assets/image/MISS5.jpeg" alt="Tai 1"></div>
+                <div class="photo-card"><img src="assets/image/miss6.jpeg" alt="Tai 2"></div>
+                <div class="photo-card"><img src="assets/image/Miss8.jpeg" alt="Tai 3"></div>
+                <div class="photo-card"><img src="assets/image/Adarsh.jpeg" alt="Tai 4"></div>
+            </div>
+            <p class="wish-text">May your life be as bright as these lights! ✨</p>
+            <button onclick="location.reload()" class="main-btn">REPLAY 🔄</button>
+        </div>
+    </section>
+
+    <audio id="birthdaySong" loop>
+        <source src="assets/music/bday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
