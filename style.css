@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* जुन्या overflow: hidden ऐवजी हे टाका */
+body {
+    background-color: #050505;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden; /* आडवे स्क्रोलिंग बंद राहील */
+    overflow-y: auto;   /* उभे स्क्रोलिंग (Up-Down) सुरू होईल */
+}
+
+/* सेक्शनची हाईट 'fixed' न ठेवता 'min-height' करा */
+section {
+    min-height: 100vh; /* आता मजकूर जास्त असेल तर सेक्शन मोठा होईल */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.8s ease-in-out;
+    padding: 20px 0; /* वरून आणि खालून थोडी जागा सोडली आहे */
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #ff2d55;
+}
+
+/* Button Styling - Same as video */
+.main-btn {
+    background-color: #ff2d55;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(255, 45, 85, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.main-btn:hover {
+    transform: scale(1.1);
+    background-color: #e0244a;
+}
+
+/* Photo Grid Styling */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.photo-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ff2d55;
+}
+
+/* Animations */
+.fade-in { animation: fadeIn 1.5s forwards; }
+.fade-in-delay { animation: fadeIn 2.5s forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Decorative Lights Styling */
+.lights-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    z-index: 100;
+    pointer-events: none; /* जेणेकरून बटण दाबताना अडथळा येणार नाही */
+}
+
+.light-bulb {
+    width: 15px;
+    height: 15px;
+    background: #333; /* सुरुवातीला बंद (Grey/Black) */
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+/* जेव्हा lights-on क्लास ऍड होईल तेव्हा */
+.lights-on .light-bulb {
+    background: #ffea00;
+    box-shadow: 0 0 15px #ffea00, 0 0 25px #ffea00;
+    animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+    from { opacity: 0.4; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1.1); }
+}
+/* Photo Gallery Styling */
+
+.photo-grid {
+    display: flex;
+    flex-direction: column; /* फोटो एकाखाली एक येतील */
+    gap: 30px;              /* दोन फोटोंमधील अंतर */
+    padding: 20px;
+    align-items: center;    /* फोटो सेंटरमध्ये राहतील */
+}
+
+/* २. फोटोची उंची (Height) वाढवण्यासाठी */
+.photo-card {
+    width: 90%;             /* स्क्रीनच्या ९०% रुंदी */
+    max-width: 500px;       /* जास्तीत जास्त रुंदी ५००px */
+    transform: rotate(0deg) !important; /* तिरका इफेक्ट काढून टाकला जेणेकरून फोटो मोठे दिसतील */
+    border: 3px solid #ff2d55;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 45, 85, 0.4);
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;           /* फोटोचा आकार न बिघडता उंची आपोआप वाढेल */
+    min-height: 300px;      /* तुला हवी असलेली किमान उंची इथे बदलू शकतोस */
+    object-fit: contain;    /* पूर्ण फोटो दिसण्यासाठी 'cover' ऐवजी 'contain' वापरा */
+    display: block;
+    background-color: #000; /* जर फोटो लहान असेल तर बाजूला काळा रंग दिसेल */
+}
+/* Flying Balloons Styling */
+#balloon-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 50px;
+    background: #ff2d55;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: flyUp 6s linear infinite;
+}
+
+@keyframes flyUp {
+    0% { transform: translateY(0) translateX(0); opacity: 1; }
+    100% { transform: translateY(-120vh) translateX(50px); opacity: 0; }
+}
+/* Login Box Styling */
+.login-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 350px;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #ff2d55;
+    background: transparent;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+#passwordInput:focus {
+    outline: none;
+    box-shadow: 0 0 10px #ff2d55;
+}
+/* --- अपडेटेड स्प्लिट लेआउट (Large Text & Proper Image) --- */
+ .split-container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* स्क्रीनची पूर्ण उंची लॉक केली */
+    overflow: hidden; /* मुख्य पेज हलणार नाही */
+    background: #050505;
+}
+
+/* डावी बाजू: फोटो स्थिर (Fixed) राहील */
+.split-left {
+    flex: 1; /* फोटोला थोडी कमी जागा दिली जेणेकरून मेसेजला जास्त जागा मिळेल */
+    height: 100vh;
+    background: #000;
+}
+
+.split-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* फोटो स्ट्रेच होणार नाही, कापला जाणार नाही */
+    filter: brightness(0.8);
+}
+
+/* उजवी बाजू: मेसेज स्क्रोल करण्यासाठी */
+.split-right {
+    flex: 1.2; /* मेसेज वाचण्यासाठी जास्त जागा दिली */
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* मजकूर वरून सुरू होईल */
+    text-align: left;
+    background: #050505;
+    border-left: 3px solid #ff2d55;
+    overflow-y: auto; /* मजकूर मोठा असेल तर इथे स्क्रोल येईल */
+}
+
+/* मेसेजमधील अक्षरांचे अंतर आणि साईज */
+.wish-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.description p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #eee;
+}
+
+/* स्क्रोलबार दिसायला सुंदर करण्यासाठी */
+.split-right::-webkit-scrollbar {
+    width: 5px;
+}
+
+.split-right::-webkit-scrollbar-thumb {
+    background: #ff2d55;
+    border-radius: 10px;
+}
+
+/* --- मोबाईलसाठी ऍडजस्टमेंट (Responsive) --- */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        overflow-y: auto; /* मोबाईलवर पूर्ण पेज स्क्रोल होईल */
+        height: auto;
+    }
+    
+    .split-left {
+        height: 45vh; /* मोबाईलवर फोटोची उंची कमी केली */
+        width: 100%;
+    }
+
+    .split-right {
+        width: 100%;
+        padding: 30px 20px;
+        text-align: center;
+        border-left: none;
+        border-top: 3px solid #ff2d55;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .wish-content h1 {
+        font-size: 2rem;
+    }
+}
